@@ -1,0 +1,10 @@
+# Exemple (indicatif) de configuration d’un agent/collector OTLP
+# -> À adapter selon le langage et le SDK OpenTelemetry utilisé.
+
+# Pour le TP, l’important est :
+# - d’émettre des traces OTLP vers Jaeger (endpoint fourni par l’operator)
+# - de vérifier dans l’UI Jaeger que les spans apparaissent bien
+
+# Références :
+# - Documentation OpenTelemetry pour le langage choisi
+# - Configuration Jaeger Operator (addr OTLP)

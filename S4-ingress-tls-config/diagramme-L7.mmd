@@ -1,0 +1,7 @@
+flowchart LR
+  C[Client] --> I[Ingress NGINX]
+  I -->|/front| S1[Service front]
+  I -->|/api| S2[Service api]
+  S1 --> P1[(Pods front)]
+  S2 --> P2[(Pods api)]
+  I -. TLS termination .- I

@@ -1,0 +1,8 @@
+# Fichiers temporaires
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Archives
+*.zip

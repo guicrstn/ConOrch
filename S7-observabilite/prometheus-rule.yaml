@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: workshop-alerts
+  namespace: observability
+spec:
+  groups:
+    - name: api.rules
+      rules:
+        - alert: HighErrorRate
+          expr: sum(rate(http_requests_total{status=~"5.."}[5m]))
+                / sum(rate(http_requests_total[5m])) > 0.02
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: ">2% d’erreurs 5xx sur 10m"
+            description: "Le taux d’erreur 5xx dépasse 2% sur les 10 dernières minutes pour l’API."
+        - alert: PodHighRestarts
+          expr: increase(kube_pod_container_status_restarts_total[10m]) > 5
+          for: 15m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Redémarrages anormaux des pods"
+            description: "Un ou plusieurs containers redémarrent fréquemment sur une fenêtre de 10 minutes."
