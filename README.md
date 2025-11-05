@@ -26,13 +26,16 @@ Namespace de travail recommandé : `workshop`.
 ```bash
 # S4 : Ingress, TLS, Config, Secret
 kubectl apply -f S4-ingress-tls-config/
-
+```
+```bash
 # S5 : PostgreSQL en StatefulSet
 kubectl apply -f S5-statefulset-persistence/
-
+```
+```bash
 # S6 : Scalabilité & résilience
 kubectl apply -f S6-scalabilite-resilience/
-
+```
+```bash
 # S7 : Observabilité (après installation des charts Helm)
 kubectl apply -f S7-observabilite/
 ```
